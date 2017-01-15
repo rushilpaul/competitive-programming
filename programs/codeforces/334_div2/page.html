@@ -1,0 +1,803 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="X-Csrf-Token" content="9c001ff1400afa6d59894c8598117344"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="profileName" content="c2">
+    <meta name="google-site-verification" content="OTd2dN5x4nS4OPknPI9JFg36fKxjqY0i1PSfFPv_J90"/>
+    <meta property="fb:admins" content="100001352546622" />
+    <meta property="og:image" content="http://st.codeforces.com/images/codeforces-telegram-square.png" />
+    <link rel="image_src" href="http://st.codeforces.com/images/codeforces-telegram-square.png" />
+    <meta property="og:title" content="Problem - B - Codeforces"/>
+    <meta property="og:description" content=""/>
+    
+    <meta property="og:site_name" content="Codeforces"/>
+    
+    <meta name="cc" content="1j28vcm2wqkbd"/>
+    <meta name="pc" content="1a8t1kfcpg89p"/>
+    <meta name="verify-reformal" content="f56f99fd7e087fb6ccb48ef2" />
+    <title>Problem - B - Codeforces</title>
+        <meta name="description" content="Codeforces. Programming competitions and contests, programming community" />
+        <meta name="keywords" content="programming algorithm contest competition informatics olympiads c++ java graphs vkcup" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="stylesheet" href="http://st.codeforces.com/css/font-awesome.min.css" type="text/css" charset="utf-8" />
+
+        <link href='//fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+
+    <link rel="shortcut icon" type="image/png" href="http://st.codeforces.com/favicon.png">
+
+    <!--CombineResourcesFilter-->
+    <link rel="stylesheet" href="http://st.codeforces.com/css/prettify.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/clear.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/style.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/ttypography.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/problem-statement.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/second-level-menu.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/roundbox.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/datatable.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/table-form.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/topic.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/jquery.jgrowl.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/facebox.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/jquery.wysiwyg.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/jquery.autocomplete.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/codeforces.datepick.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/colorbox.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/css/jquery.drafts.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="http://st.codeforces.com/css/community.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="http://st.codeforces.com/css/status.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="http://st.codeforces.com/css/sidebar-menu.css" type="text/css" charset="utf-8" />
+
+    <script type="text/javascript" src="http://st.codeforces.com/js/prettify/prettify.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/sockjs-0.3.4.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/vertxbus-2.1.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.lavalamp.min.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.jgrowl.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/facebox.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/controls/wysiwyg.colorpicker.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/controls/wysiwyg.table.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/controls/wysiwyg.image.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/controls/wysiwyg.link.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.datepick.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.ie6blocker.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.ba-bbq.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/jquery.drafts.js"></script>
+    <script type="text/javascript" src="/scripts/fcf2366f77292a5e05c349230a14b38b/codeforces-options.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/js/codeforces.js"></script>
+    <!--/CombineResourcesFilter-->
+
+    <link rel="stylesheet" href="http://st.codeforces.com/markitup/skins/markitup/style.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://st.codeforces.com/markitup/sets/markdown/style.css" type="text/css" charset="utf-8" />
+
+    <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+    
+    <script type="text/javascript" src="http://st.codeforces.com/markitup/jquery.markitup.js"></script>
+    <script type="text/javascript" src="http://st.codeforces.com/markitup/sets/markdown/set.js"></script>
+
+    <!--[if IE]>
+    <style>
+        #sidebar {
+            padding-left: 1em;
+            margin: 1em 1em 1em 0;
+        }
+    </style>
+    <![endif]-->
+
+
+</head>
+<body><span style='display:none;' class='csrf-token' data-csrf='9c001ff1400afa6d59894c8598117344'>&nbsp;</span>
+<div class="button-up" style="display: none; opacity: 0.7; width: 50px; height:100%; position: fixed; left: 0; top: 0; cursor: pointer; text-align: center; line-height: 35px; color: #d3dbe4; font-weight: bold; font-size: 30px;"><i class="icon-circle-arrow-up"></i></div>
+
+<!-- Codeforces JavaScripts. -->
+<script type="text/javascript">
+    if (window.parent.frames.length > 0) {
+        window.stop();
+    }
+</script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+    (function () {
+        jQuery.expr[':'].containsCI = function(elem, index, match) {
+            return !match || !match.length || match.length < 4 || !match[3] || (
+                    elem.textContent || elem.innerText || jQuery(elem).text() || ''
+            ).toLowerCase().indexOf(match[3].toLowerCase()) >= 0;
+        }
+    }(jQuery));
+
+    $.ajaxPrefilter(function(options, originalOptions, xhr) {
+        var csrf = Codeforces.getCsrfToken();
+
+        if (csrf) {
+            var data = originalOptions.data;
+            if (originalOptions.data !== undefined) {
+                if (Object.prototype.toString.call(originalOptions.data) === '[object String]') {
+                    data = $.deparam(originalOptions.data);
+                }
+            } else {
+                data = {};
+            }
+            options.data = $.param($.extend(data, { csrf_token: csrf }));
+        }
+    });
+
+    window.getCodeforcesServerTime = function(callback) {
+        $.post("/data/time", {}, callback, "json");
+    }
+
+    window.updateTypography = function () {
+        $("div.ttypography code").addClass("tt");
+        $("div.ttypography pre>code").addClass("prettyprint").removeClass("tt");
+        $("div.ttypography table").addClass("bordertable");
+        prettyPrint();
+    }
+
+    $.ajaxSetup({ scriptCharset: "utf-8" ,contentType: "application/x-www-form-urlencoded; charset=UTF-8", headers: {
+        'X-Csrf-Token': Codeforces.getCsrfToken()
+    }});
+
+    window.updateTypography();
+
+    Codeforces.signForms();
+
+    $(".second-level-menu-list").lavaLamp({
+        fx: "backout",
+        speed: 1000
+    });
+
+
+    Codeforces.countdown();
+    $("a[rel='photobox']").colorbox();
+
+        var count = 0;
+
+        function getDelay() {
+            var delay = 0;
+            var last = Codeforces.getCookie("lastOnlineTimeUpdaterInvocation");
+            if (last && last != null) {
+                var period = count < 20 ? 180 * 1000 : 360 * 1000;
+                delay = period - (new Date().getTime() - last);
+                if (delay < 0)
+                    delay = 0;
+            }
+            return delay;
+        }
+
+        window.setInterval(function () {
+            if (getDelay() <= 0 && count < 120) {
+                ++count;
+                Codeforces.ping("/data/update-online");
+            }
+        }, 5000);
+
+        var handle = "rushilpaul";
+        $("a.rated-user:contains(" + handle + "), span.participant:contains(" + handle + ")").each(function () {
+            if ($(this).text() == handle) {
+                var td = $(this).parent();
+                var tr = $(this).parent().parent();
+                if (td.is("td") && tr.is("tr")) {
+                    tr.addClass("highlighted-row");
+                }
+            }
+        });
+
+    function showAnnouncements(json) {
+        if (json.t != "a") {
+            return;
+        }
+        console.log("Got announcement from channel");
+        setTimeout(function() {
+            Codeforces.showAnnouncements(json.d, "en");
+        }, Math.random() * 500);
+    }
+    if (Codeforces.getParticipantSubmissionsChannel()) {
+        Codeforces.subscribe(Codeforces.getParticipantSubmissionsChannel(), function(json) {
+            showAnnouncements(json);
+        });
+    }
+
+    if (Codeforces.getContestSubmissionsChannel()) {
+        Codeforces.subscribe(Codeforces.getContestSubmissionsChannel(), function(json) {
+            showAnnouncements(json);
+        });
+    }
+
+    if (Codeforces.getGlobalSubmissionsChannel()) {
+        Codeforces.subscribe(Codeforces.getGlobalSubmissionsChannel(), function(json) {
+            showAnnouncements(json);
+        });
+    }
+
+    $(".clickable-title").click(function() {
+        Codeforces.alert($(this).attr("title"));
+    }).css("position", "relative").css("bottom", "3px");
+
+        });
+    </script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-743380-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = (document.location.protocol == 'https:' ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<div id="body">
+        
+<div id="header" style="position: relative;">
+    <div style="float:left;">
+            <a href="/"><img src="http://st.codeforces.com/images/codeforces-logo-with-telegram.png"/></a>
+    </div>
+    <div class="lang-chooser">
+        <div style="text-align: right;">
+            <a href="?locale=en"><img src="http://st.codeforces.com/images/flags/24/gb.png" title="In English" alt="In English"/></a>
+            <a href="?locale=ru"><img src="http://st.codeforces.com/images/flags/24/ru.png" title="По-русски" alt="По-русски"/></a>
+        </div>
+        <div>
+                <a href="/profile/rushilpaul">rushilpaul</a>
+                 | 
+                <a href="/679dde2e1f94330b3f4d3ab87e6a0aa1/logout">Logout</a>
+                
+        </div>
+    </div>
+    <div style="font-size: 0.8em; margin-top: 0.25em; position: absolute; right: 0; top: 4.25em;">
+    </div>
+    <br style="clear: both;"/>
+</div>
+
+        
+    <div class="roundbox menu-box" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+            <div class="roundbox-lb">&nbsp;</div>
+            <div class="roundbox-rb">&nbsp;</div>
+<div class="menu-list-container">
+    <ul class="menu-list main-menu-list">
+                <li class=""><a href="/">Home</a></li>
+                <li class="current"><a href="/contests">Contests</a></li>
+                <li class=""><a href="/gyms">Gym</a></li>
+                <li class=""><a href="/problemset">Problemset</a></li>
+                <li class=""><a href="/groups">Groups</a></li>
+                <li class=""><a href="/ratings">Rating</a></li>
+                <li class=""><a href="/api/help">API</a></li>
+                <li class=""><a href="/help">Help</a></li>
+                <li class=""><a href="/testlib">Testlib</a></li>
+                <li class=""><a href="/aimfund2015">AIM Fund Round <img class="icon" src="http://stat.codeforces.ru/images/icons/cup.png"/></a></li>
+                <li class=""><a href="/rcc2015">RCC <img class="icon" src="http://stat.codeforces.ru/images/icons/cup.png"/></a></li>
+                <li class=""><a href="/5years"><span style="color:#ce2a2a;position:relative;bottom:3px;font-weight:bold;">5 years!</span><img src='http://assets.codeforces.com/images/icons/gift-small.png'/></a></li>
+    </ul>
+    <form method="post" action="/search"><input type='hidden' name='csrf_token' value='9c001ff1400afa6d59894c8598117344'/>
+        <input class="search" name="query" data-isPlaceholder="true" value="Search by tag"/>
+    </form>
+    <br style="clear: both;"/>
+</div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input.search").focus(function () {
+                if ($(this).attr("data-isPlaceholder") === "true") {
+                    $(this).val("");
+                    $(this).removeAttr("data-isPlaceholder");
+                }
+            });
+        });
+    </script>
+        <br style="height: 3em; clear: both;"/>
+        <div style="position: relative;">
+                    <div id="sidebar">
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <table class="rtable ">
+            <tbody>
+                <tr>
+                            <th class="left" style="width:100%;"><a style="color: black" href="/contest/604">Codeforces Round #334 (Div. 2)</a></th>
+                </tr>
+                    <tr>
+                                <td class="left " colspan="1"><span class="contest-state-phase">Finished</span></td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark" colspan="1"><span class="contest-state-regular">Practice</span></td>
+                    </tr>
+                    <tr>
+                                <td class="left bottom" colspan="1"><span class="contest-state-regular"><center>
+    <span>
+            <img class="toggle-favourite add-favourite" title="Add to favourites" alt="Add to favourites" data-type="CONTEST" data-entityId="604" data-size="24" src="http://st.codeforces.com/images/icons/star_gray_24.png"/>
+    </span>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("img.toggle-favourite").click(function () {
+                var size = $(this).attr("data-size");
+                var img = $(this);
+
+                var isFavourite = !img.hasClass("remove-favourite");
+                var type = img.attr("data-type");
+                var entityId = img.attr("data-entityId");
+
+                $.post("/data/favourite",
+                        { entityId: entityId, type: type, isFavourite: isFavourite },
+                        function(response) {
+                            if (response["success"] != "true") {
+                                alert(response["message"]);
+                            } else {
+                                if (img.hasClass("remove-favourite")) {
+                                    img.attr("src", "http://st.codeforces.com/images/icons/star_gray_" + size + ".png");
+                                    img.removeClass("remove-favourite");
+                                    img.addClass("add-favourite");
+                                } else {
+                                    img.attr("src", "http://st.codeforces.com/images/icons/star_yellow_" + size + ".png");
+                                    img.removeClass("add-favourite");
+                                    img.addClass("remove-favourite");
+                                }
+                            }
+                        }, "json"
+                );
+
+                return false;
+            });
+        });
+    </script>
+</center></span></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">&rarr; Virtual participation
+            <div class="top-links">
+            </div>
+        </div>
+
+<div>
+    <div style="margin:1em;font-size:0.8em;">
+        Virtual contest is a way to take part in past contest, as close as possible to participation on time. It is supported only ACM-ICPC mode for virtual contests.
+
+If you've seen these problems, a virtual contest is not for you - solve these problems in the archive.
+
+If you just want to solve some problem from a contest, a virtual contest is not for you - solve this problem in the archive.
+
+Never use someone else's code, read the tutorials or communicate this other person during a virtual contest.
+    </div>
+
+    <div style="text-align:center;margin:1em;">
+        <form action="/contest/604/virtual" method="get">
+            <input type="submit" name="submit" value="Start virtual contest" style="padding:0 0.5em;">
+        </form>
+    </div>
+</div>
+    </div>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">&rarr; Practice
+            <div class="top-links">
+            </div>
+        </div>
+<div>
+    <div style="margin:1em;font-size:0.8em;">
+        You are registered for practice. You can solve problems unofficially. Results can be found in the contest status and in the bottom of standings.
+    </div>
+</div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
+
+<style type="text/css">
+    .submitForm .field {
+        font-size: 11px;
+        width: 3em !important;
+        padding-right: 1em;
+    }
+
+    .submitForm input, .submitForm select {
+        font-size: 11px;
+        width: 17em;
+    }
+</style>
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">&rarr; Submit?
+            <div class="top-links">
+            </div>
+        </div>
+<div>
+    <form method="post" action="?csrf_token=9c001ff1400afa6d59894c8598117344" enctype="multipart/form-data" class="submitForm"><input type='hidden' name='csrf_token' value='9c001ff1400afa6d59894c8598117344'/>
+        <input type="hidden" name="ftaa" value=""/>
+        <input type="hidden" name="bfaa" value=""/>
+        <input type="hidden" name="action" value="submitSolutionFormSubmitted"/>
+        <input type="hidden" name="submittedProblemIndex" value="B"/>
+        <input type="hidden" name="source" value=""/>
+
+        <table class="table-form" style="width:90%;">
+            <tr>
+                <td class="field">Language:</td>
+                <td>
+                    <select name="programTypeId">
+                        <option value="10"
+                                >GNU GCC 5.1.0</option>
+                        <option value="43"
+                                >GNU GCC C11 5.1.0</option>
+                        <option value="1"
+                                >GNU G++ 5.1.0</option>
+                        <option value="42"
+                                selected="true">GNU G++11 5.1.0</option>
+                        <option value="2"
+                                >Microsoft Visual C++ 2010</option>
+                        <option value="9"
+                                >C# Mono 3.12.1.0</option>
+                        <option value="29"
+                                >MS C# .NET 4.0.30319</option>
+                        <option value="28"
+                                >D DMD32 v2.068.2</option>
+                        <option value="32"
+                                >Go 1.5.1</option>
+                        <option value="12"
+                                >Haskell GHC 7.8.3</option>
+                        <option value="23"
+                                >Java 1.7.0_80</option>
+                        <option value="36"
+                                >Java 1.8.0_66</option>
+                        <option value="19"
+                                >OCaml 4.02.1</option>
+                        <option value="3"
+                                >Delphi 7</option>
+                        <option value="4"
+                                >Free Pascal 2.6.4</option>
+                        <option value="13"
+                                >Perl 5.20.1</option>
+                        <option value="6"
+                                >PHP 5.4.42</option>
+                        <option value="7"
+                                >Python 2.7.10</option>
+                        <option value="31"
+                                >Python 3.5.0</option>
+                        <option value="40"
+                                >PyPy 2.7.10 (2.6.1)</option>
+                        <option value="41"
+                                >PyPy 3.2.5 (2.4.0)</option>
+                        <option value="8"
+                                >Ruby 2.0.0p645</option>
+                        <option value="20"
+                                >Scala 2.11.7</option>
+                        <option value="34"
+                                >JavaScript V8 4.8.0</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="field">Choose file:</td>
+                <td>
+                    <input name="sourceFile" type="file" value=""/>
+                </td>
+            </tr>
+        <tr class="subscription-row ">
+            <td>&nbsp;</td>
+        <td><div class="shiftUp">        <span class="error for__source">You have submitted exactly the same code before</span>
+</div></td>
+        </tr>
+
+            <tr>
+                <td colspan="2">
+                    <div style="text-align: center;">
+
+                            <div style="font-size: 11px; width: 100%; margin: 0.5em auto;">
+                                Be careful: there is 50 points penalty for submission which fails the pretests or resubmission (except failure on the first test, denial of judgement or similar verdicts). "Passed pretests" submission verdict doesn't guarantee that the solution is absolutely correct and it will pass system tests.
+                            </div>
+
+
+                        <input style="width:10em;" class="submit" type="submit" value="Submit"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+    </div>
+
+        <script src="http://st.codeforces.com/js/swfobject-2.2.min.js" type="text/javascript"></script>
+        <script src="http://st.codeforces.com/js/ftaa.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                if (window.evercookie) {
+                    var ec = new evercookie({
+                        history: false,
+                        silverlight: false,
+                        baseurl: '',
+                        asseturi: '/assets',
+                        phpuri: '/2fdcd78',
+                        pngPath: '/eps',
+                        etagPath: '/ees',
+                        cachePath: '/ecs'
+                    });
+
+                    var randomNumber = function () {
+                        return Math.random().toString(36).substr(2);
+                    };
+
+                    var randomToken = function () {
+                        return (randomNumber() + randomNumber()).substring(0, 18);
+                    };
+
+                    window._ftaa = "";
+
+                    ec.get("70a7c28f3de", function (value) {
+                        window._ftaa = value;
+                        if (!window._ftaa) {
+                            window._ftaa = randomToken();
+                            ec.set("70a7c28f3de", window._ftaa);
+                        }
+                        $.post("/data/empty", {bfaa: window._bfaa, ftaa: window._ftaa});
+                        if (console) {
+                            console.log(window._ftaa)
+                        }
+                    });
+                } else {
+                    window._ftaa = "n/a";
+                    $.post("/data/empty", {bfaa: window._bfaa, ftaa: window._ftaa});
+                }
+            });
+        </script>
+
+        <script src="http://st.codeforces.com/js/bfaa.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                if (window.Fingerprint2) {
+                    var options = {swfPath: undefined};
+                    window._bfaa = "";
+
+                    new Fingerprint2(options).get(function(result){
+                        window._bfaa = result;
+                        $.post("/data/empty", {bfaa: window._bfaa, ftaa: window._ftaa});
+                        if (console) {
+                            console.log("fingerprint: " + result);
+                        }
+                    });
+                } else {
+                    window._bfaa = "n/a";
+                    $.post("/data/empty", {bfaa: window._bfaa, ftaa: window._ftaa});
+                }
+            });
+        </script>
+
+<script>
+    $(function () {
+        $(".submit-form, .submitForm").submit(function () {
+            var $ftaa = $(this).find("input[name='ftaa']");
+            var $bfaa = $(this).find("input[name='bfaa']");
+
+            if (window._ftaa && window._bfaa) {
+                $ftaa.val(window._ftaa);
+                $bfaa.val(window._bfaa);
+            }
+            return true;
+        });
+    });
+</script>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">&rarr; Last submissions
+            <div class="top-links">
+            </div>
+        </div>
+        <table class="rtable smaller">
+            <tbody>
+                <tr>
+                            <th class="left " style="width:2.5em;">Submission</th>
+                            <th class=" " style="width:7em;">Time</th>
+                            <th class=" ">Verdict</th>
+                </tr>
+                    <tr>
+                                <td class="left  dark "><a href="/contest/604/submission/14608590">14608590</a></td>
+                                <td class=" dark ">Dec/02/2015 00:44</td>
+                                <td class=" dark "><span class='verdict-accepted'>Accepted</span></td>
+                    </tr>
+                    <tr>
+                                <td class="left  "><a href="/contest/604/submission/14607187">14607187</a></td>
+                                <td class=" ">Dec/01/2015 22:44</td>
+                                <td class=" "><span class='verdict-accepted'>Accepted</span></td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark "><a href="/contest/604/submission/14604933">14604933</a></td>
+                                <td class=" dark ">Dec/01/2015 21:13</td>
+                                <td class=" dark "><span class='verdict-rejected'>Wrong answer on test <span class="verdict-format-judged">10</span></span></td>
+                    </tr>
+                    <tr>
+                                <td class="left bottom "><a href="/contest/604/submission/14592533">14592533</a></td>
+                                <td class="bottom ">Dec/01/2015 19:11</td>
+                                <td class="bottom "><span class='verdict-rejected'>Wrong answer on test <span class="verdict-format-judged">9</span></span></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">&rarr; Problem tags
+            <div class="top-links">
+            </div>
+        </div>
+<div style="padding: 0.5em;">
+    <div class="roundbox " style="margin:2px; padding:0 3px 2px 3px; background-color:#f0f0f0;float:left;">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+            <div class="roundbox-lb">&nbsp;</div>
+            <div class="roundbox-rb">&nbsp;</div>
+<span class="tag-box" style="font-size:12px;" title="Greedy algorithms">
+    greedy
+</span>
+    </div>
+    <div style="clear:both;text-align:right;font-size:11px;">
+            <span title="Your color should be at least violet" class="notice">No tag edit access</span>
+    </div>
+</div>
+    </div>
+
+<form id="addTagForm" action="/data/problemTags" method="post" style="display:none;"><input type='hidden' name='csrf_token' value='9c001ff1400afa6d59894c8598117344'/>
+    <input name="action" type="hidden" value="addTag"/>
+    <input name="problemId" type="hidden" value="42006"/>
+    <input name="tagName" type="hidden" value=""/>
+</form>
+
+<form id="removeTagForm" action="/data/problemTags" method="post" style="display:none;"><input type='hidden' name='csrf_token' value='9c001ff1400afa6d59894c8598117344'/>
+    <input name="action" type="hidden" value="removeTag"/>
+    <input name="problemId" type="hidden" value="42006"/>
+    <input name="tagName" type="hidden" value=""/>
+</form>
+
+<script type="text/javascript">
+    $(".tag-box img").click(function () {
+        var tagName = $(this).attr("value");
+        Codeforces.confirm("Are you sure you want to remove this tag?", function () {
+            $("#removeTagForm input[name=tagName]").val(tagName);
+            $("#removeTagForm").submit();
+        }, function () {
+        }, "Yes", "No");
+    });
+
+    $("#addTagLink").click(function () {
+        $(this).hide();
+        $("#addTagLabel").show();
+        return false;
+    });
+
+    $("#addTagSelect").change(function () {
+        var tagName = $(this).val();
+        if (tagName === "") {
+            $("#addTagLabel").hide();
+            $("#addTagLink").show();
+        } else {
+            $("#addTagForm input[name=tagName]").val(tagName);
+            $("#addTagForm").submit();
+        }
+    });
+</script>
+
+</div>
+                    <div id="pageContent" class="content-with-sidebar">
+                <div class="second-level-menu">
+<ul class="second-level-menu-list">
+        <li class="current selectedLava"><a
+                                        href="/contest/604">Problems</a></li>
+        <li><a
+                                        href="/contest/604/submit">Submit Code</a></li>
+        <li><a
+                                        href="/contest/604/my">My Submissions</a></li>
+        <li><a
+                                        href="/contest/604/status">Status</a></li>
+        <li><a
+                                        href="/contest/604/hacks">Hacks</a></li>
+        <li><a
+                                        href="/contest/604/room/0">Room</a></li>
+        <li><a
+                                        href="/contest/604/standings">Standings</a></li>
+        <li><a
+                                        href="/contest/604/customtest">Custom Invocation</a></li>
+</ul>
+</div>
+
+<div class="problemindexholder" problemindex="B">
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">B. More Cowbell</div><div class="time-limit"><div class="property-title">time limit per test</div>2 seconds</div><div class="memory-limit"><div class="property-title">memory limit per test</div>256 megabytes</div><div class="input-file"><div class="property-title">input</div>standard input</div><div class="output-file"><div class="property-title">output</div>standard output</div></div><div><p>Kevin Sun wants to move his precious collection of <span class="tex-span"><i>n</i></span> cowbells from Naperthrill to Exeter, where there is actually grass instead of corn. Before moving, he must pack his cowbells into <span class="tex-span"><i>k</i></span> boxes of a fixed size. In order to keep his collection safe during transportation, he won't place more than <span class="tex-font-style-bf">two</span> cowbells into a single box. Since Kevin wishes to minimize expenses, he is curious about the smallest size box he can use to pack his entire collection. </p><p>Kevin is a meticulous cowbell collector and knows that the size of his <span class="tex-span"><i>i</i></span>-th (<span class="tex-span">1 ≤ <i>i</i> ≤ <i>n</i></span>) cowbell is an integer <span class="tex-span"><i>s</i><sub class="lower-index"><i>i</i></sub></span>. In fact, he keeps his cowbells sorted by size, so <span class="tex-span"><i>s</i><sub class="lower-index"><i>i</i> - 1</sub> ≤ <i>s</i><sub class="lower-index"><i>i</i></sub></span> for any <span class="tex-span"><i>i</i> &gt; 1</span>. Also an expert packer, Kevin can fit one or two cowbells into a box of size <span class="tex-span"><i>s</i></span> if and only if the sum of their sizes does not exceed <span class="tex-span"><i>s</i></span>. Given this information, help Kevin determine the smallest <span class="tex-span"><i>s</i></span> for which it is possible to put all of his cowbells into <span class="tex-span"><i>k</i></span> boxes of size <span class="tex-span"><i>s</i></span>.</p></div><div class="input-specification"><div class="section-title">Input</div><p>The first line of the input contains two space-separated integers <span class="tex-span"><i>n</i></span> and <span class="tex-span"><i>k</i></span> (<span class="tex-span">1 ≤ <i>n</i> ≤ 2·<i>k</i> ≤ 100 000</span>), denoting the number of cowbells and the number of boxes, respectively.</p><p>The next line contains <span class="tex-span"><i>n</i></span> space-separated integers <span class="tex-span"><i>s</i><sub class="lower-index">1</sub>, <i>s</i><sub class="lower-index">2</sub>, ..., <i>s</i><sub class="lower-index"><i>n</i></sub></span> (<span class="tex-span">1 ≤ <i>s</i><sub class="lower-index">1</sub> ≤ <i>s</i><sub class="lower-index">2</sub> ≤ ... ≤ <i>s</i><sub class="lower-index"><i>n</i></sub> ≤ 1 000 000</span>), the sizes of Kevin's cowbells. It is guaranteed that the sizes <span class="tex-span"><i>s</i><sub class="lower-index"><i>i</i></sub></span> are given in non-decreasing order.</p></div><div class="output-specification"><div class="section-title">Output</div><p>Print a single integer, the smallest <span class="tex-span"><i>s</i></span> for which it is possible for Kevin to put all of his cowbells into <span class="tex-span"><i>k</i></span> boxes of size <span class="tex-span"><i>s</i></span>.</p></div><div class="sample-tests"><div class="section-title">Sample test(s)</div><div class="sample-test"><div class="input"><div class="title">Input</div><pre>2 1<br />2 5<br /></pre></div><div class="output"><div class="title">Output</div><pre>7<br /></pre></div><div class="input"><div class="title">Input</div><pre>4 3<br />2 3 5 9<br /></pre></div><div class="output"><div class="title">Output</div><pre>9<br /></pre></div><div class="input"><div class="title">Input</div><pre>3 2<br />3 5 7<br /></pre></div><div class="output"><div class="title">Output</div><pre>8<br /></pre></div></div></div><div class="note"><div class="section-title">Note</div><p>In the first sample, Kevin must pack his two cowbells into the same box. </p><p>In the second sample, Kevin can pack together the following sets of cowbells: <span class="tex-span">{2, 3}</span>, <span class="tex-span">{5}</span> and <span class="tex-span">{9}</span>.</p><p>In the third sample, the optimal solution is <span class="tex-span">{3, 5}</span> and <span class="tex-span">{7}</span>.</p></div></div></div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        function endsWith(string, suffix) {
+            return string.indexOf(suffix, string.length - suffix.length) !== -1;
+        }
+
+        var inputFileDiv = $("div.input-file");
+        var inputFile = inputFileDiv.text();
+        var outputFileDiv = $("div.output-file");
+        var outputFile = outputFileDiv.text();
+
+        if (!endsWith(inputFile, "standard input")) {
+            inputFileDiv.attr("style", "font-weight: bold");
+        }
+
+        if (!endsWith(outputFile, "standard output")) {
+            outputFileDiv.attr("style", "font-weight: bold");
+        }
+
+        var titleDiv = $("div.header div.title");
+
+
+
+    });
+</script>
+            </div>
+        </div>
+            <br style="clear: both;"/>
+            <div id="footer">
+                <div><a href="http://codeforces.com/">Codeforces</a> (c) Copyright 2010-2015 Mike Mirzayanov</div>
+                <div>The only programming contests Web 2.0 platform</div>
+                    <div>Server time: 2015-12-02 00:53:13 (c2).</div>
+            </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($(window).width() < 1600) {
+                $('.button-up').css('width', '30px').css('line-height', '30px').css('font-size', '20px');
+            }
+
+            if ($(window).width() >= 1200) {
+                $ (window).scroll (function () {
+                    if ($ (this).scrollTop () > 100) {
+                        $ ('.button-up').fadeIn();
+                    } else {
+                        $ ('.button-up').fadeOut();
+                    }
+                });
+
+                $('.button-up').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                    return false;
+                });
+
+                $('.button-up').hover(function () {
+                    $(this).animate({
+                        'opacity':'1'
+                    }).css({'background-color':'#e7ebf0','color':'#6a86a4'});
+                }, function () {
+                    $(this).animate({
+                        'opacity':'0.7'
+                    }).css({'background':'none','color':'#d3dbe4'});;
+                });
+            }
+            Codeforces.focusOnError();
+        });
+    </script>
+</div>
+</body>
+</html>
