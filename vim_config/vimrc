@@ -20,13 +20,25 @@ if has("syntax")
   syntax on
 endif
 
-set background=dark
+colorscheme darkblue
 set number
 set smartindent
+set autoindent
 set tabstop=4
 set shiftwidth=4
 set laststatus=2
 set statusline+=%F
+set foldmethod=manual
+
+"--- The following adds a sweet menu, press F4 to use it.
+source $VIMRUNTIME/menu.vim
+set wildmenu
+set cpo-=<
+set wcm=<c-z>
+map <f4> :emenu <c-z>
+"--- End sweet menu
+
+
 vnoremap <C-c> "+y<Esc><Esc>i
 inoremap <C-a> <Esc>ggvG<End>
 nnoremap <C-a> ggvG<End>
@@ -55,7 +67,7 @@ nnoremap <C-m> :!clear; python "%:p"<CR>
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-"set background=dark
+set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -75,10 +87,10 @@ nnoremap <C-m> :!clear; python "%:p"<CR>
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 "set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
+set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
+set mouse=a		" Enable mouse usage (all modes)
 
 setlocal cm=blowfish
 
