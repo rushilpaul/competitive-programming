@@ -21,6 +21,7 @@ if has("syntax")
 endif
 
 colorscheme darkblue
+set backspace=2
 set number
 set smartindent
 set autoindent
