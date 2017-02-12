@@ -271,11 +271,24 @@ int main()
 			B.push_back(ar[a] - ar[a-1]);
 	}
 	B.push_back(L - (ar[n-1] - ar[0]));
-	sort(all(A));
-	sort(all(B));
-	rep(a,n)
-		if(A[a] != B[a]) { printf("NO\n"); return 0; }
-	printf("YES\n");
+
+	for(int a=0;a<n;a++)
+	{
+		int flag = 1;
+		if(A[a] == B[0])
+		{
+			int i = a, j = 0;
+			while(j < n)
+			{
+				if(A[i] != B[j]) { flag = 0; break; }
+				i = (i+1) % n;
+				j++;
+			}
+			if(flag == 1) { printf("YES\n"); return 0; }
+		}
+	}
+
+	printf("NO\n");
 
 	return 0;
 }
