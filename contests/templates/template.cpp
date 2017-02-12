@@ -9,6 +9,7 @@
 #include <string>
 #include <cstring>
 #include <cmath>
+#include <climits>
 using namespace std;
 typedef long long LL;
 typedef long double LD;
