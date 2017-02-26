@@ -10,6 +10,7 @@
 #include <cstring>
 #include <cmath>
 #include <climits>
+#include <cstdlib>
 using namespace std;
 typedef long long LL;
 typedef long double LD;
@@ -31,18 +32,7 @@ char _buf[max_buf_size];
 int _bytes_read_ = max_buf_size-1;
 char *_s = _buf + _bytes_read_;
 inline char getc1() { if(_s >= _buf + _bytes_read_) { _bytes_read_ = fread(_buf,1,max_buf_size-1,stdin); _buf[_bytes_read_] = 0;  _s = _buf; } return *(_s++); }
-inline int readint()
-{
-	char t=getc1(); int n=1,res=0;
-	while(t!='-' && !isdigit(t))
-		t=getc1();
-	if(t=='-')
-	{ n=-1; t=getc1(); }
-	while(isdigit(t))
-	{ res = 10*res + (t&15); t=getc1(); }
-	return res*n;
-}
-inline LL readLL()
+inline LL readint()
 {
 	char t=getc1(); int n=1; LL res=0;
 	while(t!='-' && !isdigit(t))
