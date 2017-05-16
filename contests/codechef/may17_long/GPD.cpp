@@ -247,40 +247,227 @@ inline LL gcd(LL a, LL b)
 	return a;
 }
 
-LL k;
-
-void f(LL *ar, int i, int n, LL p, vector<LL> &v)
+struct trie
 {
-	if(i == n)
+	trie *left, *right;
+
+	trie()
 	{
-		v.pb(p);
+		left = right = NULL;
+	}
+};
+
+struct node
+{
+	trie *trie_root;
+	int id, val, depth;
+	node()
+	{
+		depth = id = val = -1;
+		trie_root = NULL;
+	}
+};
+
+// print all elements of the trie
+void print_trie(trie* root, int n, int level)
+{
+	if(!root) return;
+	if(level == 31)
+	{
+		printf("Number: %d\n", n);
 		return;
 	}
-	f(ar,i+1,n,p,v);
-	if(ar[i] <= k / p)
-		f(ar,i+1,n,p * ar[i],v);
+	//printf("......number so far = %d, at level %d\n", n, level);
+	print_trie(root->left, n * 2, level+1);
+	print_trie(root->right, n * 2 + 1, level+1);
+}
+
+node *root;
+
+// mapping of node ID to tree node
+map<int, node*> treeMap;
+
+// pos = 0 will return the least significant bit
+int getBit(int n, int pos) { return (n & (1<<pos)) > 0; }
+
+trie* updateTrie(int val, trie *from)
+{
+	//printf("inserting val = %d\n", val);
+	trie *root = new trie();
+	trie *cur_target = root, *cur_source = from;
+	for(int pos = 30; pos >= 0; pos--)
+	{
+		int bit = getBit(val, pos);
+		if(bit)
+		{
+			if(cur_target->right == NULL)
+				cur_target->right = new trie();
+
+			cur_target->left = cur_source ? cur_source->left : NULL;
+			cur_target = cur_target->right;
+			if(cur_source)
+				cur_source = cur_source->right;
+		}
+		else
+		{
+			if(cur_target->left == NULL)
+				cur_target->left = new trie();
+
+			cur_target->right = cur_source ? cur_source->right : NULL;
+			cur_target = cur_target->left;
+			if(cur_source)
+				cur_source = cur_source->left;
+		}
+	}
+	return root;
+}
+
+// update the tree node v with a new child node
+void update(int v, node* newnode)
+{
+	node *node_v = treeMap[v];
+	// insert the new node as a child node of v
+	// increase the depth of the new ndoe
+	newnode->depth = node_v->depth + 1;
+	// create a new trie and assign its root to the new node
+	newnode->trie_root = updateTrie(newnode->val, node_v->trie_root);
+}
+
+// get max xor
+int query(int val, trie* root, int findmax)
+{
+	trie *cur = root;
+	int num = 0;
+	int pos = 30;
+	while(cur && pos >= 0)
+	{
+		if(getBit(val, pos))
+		{
+			if(findmax)
+			{
+				if(cur->left)
+				{
+					cur = cur->left;
+					if(cur)
+						num = num * 2;
+				}
+				else
+				{
+					cur = cur->right;
+					if(cur)
+						num = num * 2 + 1;
+				}
+			}
+			else
+			{
+				if(cur->right)
+				{
+					cur = cur->right;
+					if(cur)
+						num = num * 2 + 1;
+				}
+				else
+				{
+					cur = cur->left;
+					if(cur)
+						num = num * 2;
+				}
+			}
+		}
+		else
+		{
+			if(findmax)
+			{
+				if(cur->right)
+				{
+					cur = cur->right;
+					if(cur)
+						num = num * 2 + 1;
+				}
+				else
+				{
+					cur = cur->left;
+					if(cur)
+						num = num * 2;
+				}
+			}
+			else
+			{
+				if(cur->left)
+				{
+					cur = cur->left;
+					if(cur)
+						num = num * 2;
+				}
+				else
+				{
+					cur = cur->right;
+					if(cur)
+						num = num * 2 + 1;
+				}
+
+			}
+		}
+		pos--;
+	}
+	assert(pos == -1);
+	return num;
 }
 
 int main()
 {
-	int n = readint();
-	k = readint();
-	LL ar[31];
-	rep(a,n) ar[a] = readint();
+	int n, q, rootID, rootVal; scanf("%d %d %d %d", &n, &q, &rootID, &rootVal);
+	root = new node();
+	root->depth = 0;
+	root->id = rootID;
+	root->val = rootVal;
+	treeMap[rootID] = root;
+	root->trie_root = updateTrie(root->val, NULL);
 
-	vector<LL> A,B;
-	f(ar,0,n/2,1,A);
-	f(ar+n/2,0,(n+1)/2,1,B);
-	sort(all(B));
-	
-	LL ans = 0;
-	for(auto i : A)
+	rep(a,n-1)
 	{
-		int pos = upper_bound(all(B), k/i) - B.begin();
-		ans += pos;
+		int u,v,k; scanf("%d %d %d", &u, &v, &k);
+		node *newnode = new node();
+		newnode->id = u;
+		newnode->val = k;
+		treeMap[u] = newnode;
+		update(v, newnode);
+		//print_trie(newnode->trie_root, 0, 0);
+		//printf("\n");
 	}
 
-	printf("%lld\n", ans-1);
+	int last_ans = 0;
+	while(q--)
+	{
+		int type, v; scanf("%d %d", &type, &v);
+		type ^= last_ans;
+		v ^= last_ans;
+
+		if(type == 0)	// update
+		{
+			int u,k; scanf("%d %d", &u, &k);
+			u ^= last_ans; k ^= last_ans;
+
+			node *newnode = new node();
+			newnode->id = u;
+			newnode->val = k;
+			treeMap[u] = newnode;
+			update(v, newnode);
+			//print_trie(newnode->trie_root, 0, 0);
+			//printf("\n");
+		}
+		else
+		{
+			int k; scanf("%d", &k);
+			k ^= last_ans;
+
+			node *node_v = treeMap[v];
+			int min_ans = k ^ query(k, node_v->trie_root, 0);
+			int max_ans = k ^ query(k, node_v->trie_root, 1);
+			printf("%d %d\n", min_ans, max_ans);
+			last_ans = min_ans ^ max_ans;
+		}
+	}
 
 	return 0;
 }
