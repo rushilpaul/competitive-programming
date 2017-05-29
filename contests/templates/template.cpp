@@ -212,6 +212,8 @@ inline LL pow(LL b, LL e, LL mod)
 	return ans;
 }
 
+// assigns x and y such that a*x + b*y = 1
+// returns gcd(a,b)
 template<class T>
 T egcd(T a, T b, T &x, T &y)
 {
