@@ -100,9 +100,56 @@ inline LL gcd(LL a, LL b)
 	return a;
 }
 
+vector<int> V[10001];
+int ans, root, max_depth;
+
+void f(int v, int parent, int depth)
+{
+	if(V[v].size() == 1 and v != root)
+	{
+		//printf("leaf node %d at depth %d\n", v, depth);
+		if(depth > max_depth)
+		{
+			max_depth = depth;
+			ans = v;
+		}
+		else if(depth == max_depth) {
+			ans = min(ans, v);
+		}
+		return;
+	}
+	for(int u : V[v])
+		if(u != parent)
+			f(u, v, depth+1);
+}
+
 int main()
 {
-	
+	int t = readint();
+	while(t--)
+	{
+		int n = readint();
+		repab(i,1,n)
+			V[i].clear();
+
+		rep(a,n-1)
+		{
+			int u = readint(), v = readint();
+			V[u].pb(v);
+			V[v].pb(u);
+		}
+		root = readint();
+
+		if(n == 1) {
+			printf("%d\n", root);
+			continue;
+		}
+		ans = INT_MAX;
+		max_depth = 0;
+		f(root, 0, 0);
+		printf("%d\n", ans);
+	}
+	return 0;
 }
 
 

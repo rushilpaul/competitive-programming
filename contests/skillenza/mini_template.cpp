@@ -100,9 +100,15 @@ inline LL gcd(LL a, LL b)
 	return a;
 }
 
+char* f() {
+	
+	char *s = new char[5];
+	return s;
+}
+
 int main()
 {
-	
+	printf("%s\n", f());
 }
 
 

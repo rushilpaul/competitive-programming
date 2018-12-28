@@ -20,13 +20,7 @@ typedef vector<int> VI;
 typedef vector<LL> VLL;
 typedef vector<double> VD;
 
-#define rep(i,n) for(int i=0;i<(n);i++)
-#define repab(i,a,b) for(int i=(a);i<=(b);i++)
-#define all(v) v.begin(),v.end()
-#define pb push_back
-#define PI 3.141592653589793238462643383279502884197
-
-int readint() { int i; scanf("%d",&i); return i; }
+LL readint() { LL x; scanf("%lld",&x); return x; }
 
 vector<string> split(string S, string D)	// Split string S with D as the delimiter, return tokens
 {
@@ -100,9 +94,65 @@ inline LL gcd(LL a, LL b)
 	return a;
 }
 
-int main()
+int H[100001], C[100001];
+vector<int> G[100001];
+int done[100001];
+LL ans[1000001][2];
+int n, m;
+
+void solve()
 {
-	
+	queue<int> q;
+	q.push(1);
+	while(q.size() > 0)
+	{
+		int u = q.front();
+		q.pop();
+		done[u] = 1;
+		for(int v : G[u])
+		{
+			if(done[v])
+				continue;
+			if(H[u] < H[v])	// uphill
+			{
+				ans[v][0] = min(ans[v][0], ans[u][0]);
+				ans[v][0] = min(ans[v][0], ans[u][1] + C[u]);
+			}
+			else if(H[u] > H[v])	// downhill
+			{
+				ans[v][1] = min(ans[v][1], ans[u][0] + C[u]);
+				ans[v][1] = min(ans[v][1], ans[u][1]);
+			}
+			else	// same hill
+			{
+				ans[v][0] = min(ans[v][0], ans[u][0]);
+				ans[v][1] = min(ans[v][1], ans[u][1]);
+			}
+			q.push(v);
+		}
+	}
+	LL final_ans = min(ans[n][0], ans[n][1]);
+	if(final_ans == LLONG_MAX)
+		final_ans = -1;
+	printf("%lld\n", final_ans);
 }
 
-
+int main()
+{
+	n = readint(); m = readint();
+	for(int a=0;a<n;a++)
+		H[a] = readint();
+	for(int a=0;a<n;a++)
+	{
+		C[a] = readint();
+		ans[a][0] = ans[a][1] = LLONG_MAX;
+	}
+	for(int a=0;a<m;a++)
+	{
+		int x = readint(), y = readint();
+		G[x].push_back(y);
+		G[y].push_back(x);
+	}
+	solve();
+	return 0;
+}
