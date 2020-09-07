@@ -2,14 +2,12 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class Template {
-
+public class Template {
 
     public static void main(String[] args) {
 
         FastScanner sc = new FastScanner();
     }
-
 
     static final Random random = new Random();
 
@@ -216,17 +214,17 @@ class Template {
     }
 
     private static int abs(int a){  return (a>=0) ? a: -a;  }
-    private static int min(int... ins){ int min = ins[0]; for(int i=1; i<ins.length; i++){ if(ins[i] < min) min = ins[i]; } return min; }
-    private static int max(int... ins){ int max = ins[0]; for(int i=1; i<ins.length; i++){ if(ins[i] > max) max = ins[i]; } return max; }
-    private static int sum(int... ins){ int total = 0; for (int v : ins) { total += v; } return total; }
-    private static long abs(long a){    return (a>=0) ? a: -a;  }
-    private static long min(long... ins){ long min = ins[0]; for(int i=1; i<ins.length; i++){ if(ins[i] < min) min = ins[i]; } return min; }
-    private static long max(long... ins){ long max = ins[0]; for(int i=1; i<ins.length; i++){ if(ins[i] > max) max = ins[i]; } return max; }
-    private static long sum(long... ins){ long total = 0; for (long v : ins) { total += v; } return total; }
-    private static double abs(double a){    return (a>=0) ? a: -a;  }
-    private static double min(double... ins){ double min = ins[0]; for(int i=1; i<ins.length; i++){ if(ins[i] < min) min = ins[i]; } return min; }
-    private static double max(double... ins){ double max = ins[0]; for(int i=1; i<ins.length; i++){ if(ins[i] > max) max = ins[i]; } return max; }
-    private static double sum(double... ins){ double total = 0; for (double v : ins) { total += v; } return total; }
+    private static int min(int... ins){ return Arrays.stream(ins).min().getAsInt(); }
+    private static int max(int... ins){ return Arrays.stream(ins).max().getAsInt(); }
+    private static int sum(int... ins){ return Arrays.stream(ins).sum(); }
+    private static long abs(long a){ return (a>=0) ? a: -a; }
+    private static long min(long... ins){ return Arrays.stream(ins).min().getAsLong(); }
+    private static long max(long... ins){ return Arrays.stream(ins).max().getAsLong(); }
+    private static long sum(long... ins){ return Arrays.stream(ins).sum(); }
+    private static double abs(double a){ return (a>=0) ? a: -a; }
+    private static double min(double... ins){ return Arrays.stream(ins).min().getAsDouble(); }
+    private static double max(double... ins){ return Arrays.stream(ins).max().getAsDouble(); }
+    private static double sum(double... ins){ return Arrays.stream(ins).sum(); }
 
     private static class Pair implements Comparable<Pair> {
         int x, y;
