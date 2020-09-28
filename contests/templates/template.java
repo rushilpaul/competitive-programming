@@ -1,12 +1,15 @@
 import java.io.*;
 import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Template {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         FastScanner sc = new FastScanner();
+		FastWriter writer = new FastWriter();
     }
 
     static final Random random = new Random();
@@ -115,6 +118,25 @@ public class Template {
         }
     }
 
+    static class FastWriter {
+
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        void print(int n) throws Exception { writer.write(n + ""); }
+        void println(int n) throws Exception { writer.write(n + "\n"); }
+
+        void print(long n) throws Exception { writer.write(n + ""); }
+        void println(long n) throws Exception { writer.write(n + "\n"); }
+
+        void print(String s) throws Exception { writer.write(s); }
+        void println(String s) throws Exception { writer.write(s); writer.newLine(); }
+
+        void println(int ar[]) throws Exception { for(int e : ar) writer.write(e + " "); writer.newLine(); }
+        void println(long ar[]) throws Exception { for(long e : ar) writer.write(e + " "); writer.newLine(); }
+        void println(double ar[]) throws Exception { for(double e : ar) writer.write(e + " "); writer.newLine(); }
+        void close() throws Exception { writer.close(); }
+        <T> void println(List<T> L) throws Exception { for(T o : L) writer.write(o + " "); writer.newLine(); }
+    }
+
     static int findDistance(List<Integer> G[], int nodes, int src, int dst) {
 
         LinkedList<Integer> queue = new LinkedList<>();
@@ -135,6 +157,21 @@ public class Template {
             }
         }
         return ans;
+    }
+
+    static void sort(List<Integer> A) {
+        shuffleList(A);
+        Collections.sort(A);
+    }
+
+    static void shuffleList(List<Integer> A) {
+        int n = A.size();
+        for(int i = 0; i < n; i++) {
+            int tmp = A.get(i);
+            int randomPos = i + random.nextInt(n-i);
+            A.set(i, A.get(randomPos));
+            A.set(randomPos, tmp);
+        }
     }
 
     static void sort(int A[]) {
@@ -177,8 +214,24 @@ public class Template {
         }
     }
 
-    static <T> void println(T[] arr) {
-        for(T e: arr) System.out.print(e + " ");
+    static int[] subArray(int A[], int x, int y) {
+        int B[] = new int[y - x + 1];
+        for(int i = x; i <= y; i++)
+            B[i-x] = A[i];
+        return B;
+    }
+
+    static int[] toArray(List<Integer> L) {
+        return L.stream().mapToInt(x -> x).toArray();
+    }
+
+    static void println(int[] A) {
+        for(int e: A) System.out.print(e + " ");
+        System.out.println();
+    }
+
+    static void println(long[] A) {
+        for(long e: A) System.out.print(e + " ");
         System.out.println();
     }
 
@@ -188,22 +241,22 @@ public class Template {
     }
 
     static void print(String s) {
-        System.out.println(s);
+        System.out.print(s);
     }
 
     static void println(String s) {
-        System.out.println(s + "\n");
+        System.out.println(s);
     }
 
-    static List toList(int ar[]) {
+    static List<Integer> toList(int ar[]) {
         return Arrays.stream(ar).boxed().collect(Collectors.toList());
     }
 
-    static List toList(long ar[]) {
+    static List<Long> toList(long ar[]) {
         return Arrays.stream(ar).boxed().collect(Collectors.toList());
     }
 
-    static List toList(double ar[]) {
+    static List<Double> toList(double ar[]) {
         return Arrays.stream(ar).boxed().collect(Collectors.toList());
     }
 
