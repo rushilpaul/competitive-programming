@@ -1,7 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Template {
@@ -9,7 +7,7 @@ public class Template {
     public static void main(String[] args) throws Exception {
 
         FastScanner sc = new FastScanner();
-		FastWriter writer = new FastWriter();
+        FastWriter writer = new FastWriter();
     }
 
     static final Random random = new Random();
@@ -186,6 +184,19 @@ public class Template {
         shuffleArray(A);
         Arrays.sort(A);
     }
+    static <T> void sort(T[] A) {
+        shuffleArray(A);
+        Arrays.sort(A);
+    }
+    static <T> void shuffleArray(T[] A) {
+        int n = A.length;
+        for(int i = 0; i < n; i++) {
+            T tmp = A[i];
+            int randomPos = i + random.nextInt(n-i);
+            A[i] = A[randomPos];
+            A[randomPos] = tmp;
+        }
+    }
     static void shuffleArray(int[] A) {
         int n = A.length;
         for(int i = 0; i < n; i++) {
@@ -303,5 +314,14 @@ public class Template {
             return Objects.hash(x, y);
         }
     }
+
+    static int pow(int n, int p, int mod) {
+        if(p == 0)
+            return 1;
+        long x = pow(n, p/2, mod);
+        x = x * x % mod;
+        return (int) ( p % 2 == 0 ? x : x * n % mod );
+    }
 }
+
 
