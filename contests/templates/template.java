@@ -322,6 +322,31 @@ public class Template {
         x = x * x % mod;
         return (int) ( p % 2 == 0 ? x : x * n % mod );
     }
-}
 
+    static int lowerBound(int ar[], int L, int R, int val) {
+        if(val < ar[L] || val > ar[R])
+            return -1;
+        while(L <= R) {
+            int mid = (L + R) / 2;
+            if(ar[mid] >= val)
+                R = mid - 1;
+            else
+                L = mid + 1;
+        }
+        return ar[L] == val ? L : -1;
+    }
+
+    static int upperBound(int ar[], int L, int R, int val) {
+        if(val < ar[L] || val > ar[R])
+            return -1;
+        while(L <= R) {
+            int mid = (L + R) / 2;
+            if(ar[mid] > val)
+                R = mid - 1;
+            else
+                L = mid + 1;
+        }
+        return ar[R] == val ? R : -1;
+    }
+}
 
