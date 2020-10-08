@@ -2,51 +2,31 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class D {
+public class D1 {
 
     public static void main(String[] args) {
 
         FastScanner sc = new FastScanner();
         int n = sc.nextInt();
         int ar[] = sc.nextIntArray(n);
-        // 1 4 6 9 3 2
-        LinkedList<Integer> pos[] = new LinkedList[n];
-        Arrays.setAll(pos, (i) -> new LinkedList<>());
-        for(int i = 0; i < n; i++) {
-
-            pos[i].add(i+1);
-            boolean low = false, high = false;
-            int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
-            for(int j = i+1; j < n; j++) {
-
-                if(ar[j] > ar[i])
-                    high = true;
-                else if(ar[j] < ar[i])
-                    low = true;
-                else
-                    low = high = true;
-
-                if(j > i+1) {
-                    min = min(min, ar[j-1]);
-                    max = max(max, ar[j-1]);
-                    if(min(ar[i], ar[j]) > max || max(ar[i], ar[j]) < min)
-                        pos[i].add(j);
-                }
-
-                if(low && high)
-                    break;
-            }
+        sort(ar);
+        int ans[] = new int[n];
+        int k = 0;
+        for(int i = n-1; i >= 0 && k < n; i--) {
+            ans[k] = ar[i];
+            k += 2;
         }
-        int dp[] = new int[n];
-        Arrays.fill(dp, -1);
-        dp[n-1] = 0;
-        for(int i = n-2; i >= 0; i--) {
-            int min = dp[i+1];
-            for(int j : pos[i])
-                min = min(min, dp[j]);
-            dp[i] = min + 1;
+        k = 1;
+        for(int i = 0; i < n && k < n; i++) {
+            ans[k] = ar[i];
+            k += 2;
         }
-        System.out.println(dp[0]);
+        int x = 0;
+        for(int i = 1; i < n - 1; i++)
+            if(ans[i] < ans[i-1] && ans[i] < ans[i+1])
+                x++;
+        println(x + "");
+        println(ans);
     }
 
     static final Random random = new Random();
