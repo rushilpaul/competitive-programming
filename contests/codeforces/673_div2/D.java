@@ -1,10 +1,7 @@
-import javax.sql.rowset.serial.SerialArray;
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// Incomplete
-// https://codeforces.com/contest/1417/problem/D
 public class D {
 
     public static void main(String[] args) throws Exception {
@@ -15,65 +12,52 @@ public class D {
         while(t-- > 0) {
             int n = sc.nextInt();
             int ar[] = sc.nextIntArray(n);
-            int k = sum(ar) / n;
-            if(k * n != sum(ar)) {
-                writer.println("-1");
+            int sum = sum(ar);
+            if (sum % n != 0) {
+                writer.println(-1);
                 continue;
             }
-            PriorityQueue<Pair> positives = new PriorityQueue<>((a,b) -> b.x - a.x); // mapping abs number to positions
-            Set<Integer> negatives = new TreeSet<>();
-            for(int i = 0; i < n; i++) {
-                ar[i] = k - ar[i];
-                if(ar[i] > 0)
-                    positives.add(new Pair(ar[i], i + 1));
-                else if(ar[i] < 0)
-                    negatives.add(i + 1);
+            List<Integer> first = new ArrayList<>();
+            List<Integer> second = new ArrayList<>();
+            List<Integer> third = new ArrayList<>();
+            for (int i = 1; i < n; i++) {
+
+                int r = i+1 - ar[i] % (i + 1);
+                if(r < i+1) {
+                    ar[i] += r;
+                    ar[0] -= r;
+                    first.add(1);
+                    second.add(i+1);
+                    third.add(r);
+                }
+
+                int m = ar[i] / (i + 1);
+                ar[i] -= m * (i+1);
+                ar[0] += m * (i+1);
+                first.add(i+1);
+                second.add(1);
+                third.add(m);
             }
-            List<Integer> firsts = new ArrayList<>();
-            List<Integer> seconds = new ArrayList<>();
-            List<Integer> thirds = new ArrayList();
 
-            boolean possible = true;
-            while(negatives.size() > 0) {
+            int k = sum / n;
 
-                int i = negatives.iterator().next();
-                negatives.remove(i);
-                int num = -ar[i-1];
-                int x = (num + i - 1) / i;
-
-                Pair j = positives.iterator().next();
-                positives.remove(j);
-                ar[j.y - 1] -= x * i;
-                j.x -= x * i;
-                if(ar[j.y - 1] < 0)
-                    negatives.add(j.y);
-                else if(ar[j.y - 1] > 0)
-                    positives.add(j);
-
-                ar[i-1] += x * i;
-                if(ar[i-1] > k)
-                    possible = false;
-                if(ar[i-1] > 0)
-                    positives.add(new Pair(ar[i-1], i));
-
-                firsts.add(i);
-                seconds.add(j.y);
-                thirds.add(x);
-                if(firsts.size() > 3 * n) {
-                    possible = false;
-                    break;
+            for (int i = 1; i < n; i++) {
+                ar[0] -= k;
+                ar[i] += k;
+                first.add(1);
+                second.add(i+1);
+                third.add(k);
+            }
+            for(int i = 0; i < n; i++) {
+                if(ar[i] != k) {
+                    throw new RuntimeException();
                 }
             }
-            if(!possible) {
-                writer.println("-1");
-                continue;
-            }
-            if(firsts.size() > 3 * n)
-                throw new RuntimeException("Too much");
-
-            writer.println(firsts.size());
-            for(int i = 0; i < firsts.size(); i++) {
-                writer.println(firsts.get(i) + " " + seconds.get(i) + " " + thirds.get(i));
+            writer.println(first.size());
+            for(int i = 0; i < first.size(); i++) {
+                writer.print(first.get(i) + " ");
+                writer.print(second.get(i) + " ");
+                writer.println(third.get(i));
             }
         }
         writer.close();
@@ -253,6 +237,19 @@ public class D {
         shuffleArray(A);
         Arrays.sort(A);
     }
+    static <T> void sort(T[] A) {
+        shuffleArray(A);
+        Arrays.sort(A);
+    }
+    static <T> void shuffleArray(T[] A) {
+        int n = A.length;
+        for(int i = 0; i < n; i++) {
+            T tmp = A[i];
+            int randomPos = i + random.nextInt(n-i);
+            A[i] = A[randomPos];
+            A[randomPos] = tmp;
+        }
+    }
     static void shuffleArray(int[] A) {
         int n = A.length;
         for(int i = 0; i < n; i++) {
@@ -370,5 +367,44 @@ public class D {
             return Objects.hash(x, y);
         }
     }
+
+    static int pow(long n, int p, int mod) {
+        if(p == 0)
+            return 1;
+        long x = pow(n, p/2, mod);
+        x = x * x % mod;
+        return (int) ( p % 2 == 0 ? x : x * n % mod );
+    }
+
+    static long inv(int x, int m) {
+        return pow(x, m - 2, m);
+    }
+
+    static int lowerBound(int ar[], int L, int R, int val) {
+        if(val < ar[L] || val > ar[R])
+            return -1;
+        while(L <= R) {
+            int mid = (L + R) / 2;
+            if(ar[mid] >= val)
+                R = mid - 1;
+            else
+                L = mid + 1;
+        }
+        return ar[L] == val ? L : -1;
+    }
+
+    static int upperBound(int ar[], int L, int R, int val) {
+        if(val < ar[L] || val > ar[R])
+            return -1;
+        while(L <= R) {
+            int mid = (L + R) / 2;
+            if(ar[mid] > val)
+                R = mid - 1;
+            else
+                L = mid + 1;
+        }
+        return ar[R] == val ? R : -1;
+    }
 }
+
 
